@@ -1,0 +1,34 @@
+from PIL import Image, ImageDraw, ImageFont
+
+# Recreate the blank image with white background
+img = Image.new('RGB', (800, 600), color=(255, 255, 255))
+draw = ImageDraw.Draw(img)
+
+# Load a font
+try:
+    font = ImageFont.truetype("arial.ttf", 40)
+except IOError:
+    font = ImageFont.load_default()
+
+# Draw the popup store design elements
+# Wooden theme background
+draw.rectangle([0, 0, 800, 600], fill=(139, 69, 19))
+
+# Green accents for the new green tea release
+draw.rectangle([50, 50, 750, 550], outline=(34, 139, 34), width=10)
+
+# Draw text
+draw.text((200, 100), "Starbucks Pop-Up Store", font=font, fill=(255, 255, 255))
+draw.text((250, 200), "Nature & Wood Theme", font=font, fill=(255, 255, 255))
+draw.text((100, 300), "Introducing Our New Green Tea", font=font, fill=(255, 255, 255))
+
+# Draw some nature-themed decorations
+draw.ellipse([600, 400, 700, 500], outline=(34, 139, 34), width=10)
+draw.ellipse([100, 400, 200, 500], outline=(34, 139, 34), width=10)
+draw.rectangle([350, 400, 450, 450], fill=(34, 139, 34))
+
+# Save the image
+image_path = "/mnt/data/starbucks_pop_up_store_v2.png"
+img.save(image_path)
+
+image_path
